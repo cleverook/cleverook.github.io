@@ -166,11 +166,61 @@ An error object will contain an error code and a human readable description of t
 ]
 ```
 
-### Get One campains
+### Get One campain
 
 #### Request
 ```shell
-    GET {{host}}/campains
+    GET {{host}}/campains/[ID]
+    Content-Type: application/json
+    Authorization: Bearer {{jwt}}
+```
+
+#### Response
+```shell 
+{
+  "publicId": "71744202",
+  "authorId": "670f734b9b74ac17a69e5c0a",
+  "status": "DISABLED",
+  "name": "message.send",
+  "message": "Bonjour  {{lastName}} \n\nTest message {{other}}",
+  "whatsapp_template": "",
+  "time": "00:00",
+  "date": "2024-10-16",
+  "informations": [
+    "{{lastName}}",
+    "sass"
+  ],
+  "channels": [
+    "EMAIL",
+    "SMS",
+    "WHATSAPP"
+  ],
+  "guests": [
+    {
+      "id": "08d8490b-c510-4d45-9b28-b721a1615564",
+      "publicId": "04046983",
+      "slug": null,
+      "civility": "MR",
+      "firstName": "Achille",
+      "partner": null,
+      "lastName": "SIMO",
+      "email": "simachille@gmail.com",
+      "phoneIndex": "33",
+      "phone": "761705745",
+      "trial": true,
+      "stocks": null,
+      "others": null,
+      "qrCode": null
+    }
+  ]
+}
+```
+
+### Get One campain statistics
+
+#### Request
+```shell
+    GET {{host}}/campains/[ID]/statistics
     Content-Type: application/json
     Authorization: Bearer {{jwt}}
 ```
@@ -178,20 +228,18 @@ An error object will contain an error code and a human readable description of t
 #### Response
 ```shell 
 
-[
-  {
-    "date": "2024-10-16 00:00",
-    "ACCEPTED": 1,
-    "channels": [
-      "EMAIL",
-      "SMS",
-      "WHATSAPP"
-    ],
-    "name": "message.send",
-    "INITIAL": 1,
-    "ERROR": 1,
-    "id": "71744202",
-    "contacts": 1
-  }
-]
+{
+  "date": "2024-10-16 00:00",
+  "ACCEPTED": 1,
+  "channels": [
+    "EMAIL",
+    "SMS",
+    "WHATSAPP"
+  ],
+  "name": "message.send",
+  "INITIAL": 1,
+  "ERROR": 1,
+  "id": "71744202",
+  "contacts": 1
+}
 ```
