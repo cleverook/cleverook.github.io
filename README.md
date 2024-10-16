@@ -42,10 +42,12 @@ An error object will contain an error code and a human readable description of t
 
 ### Create new account 
 #### Request
-```json
+```shell
     POST ENDPOINT/signup
     content-type: application/json
-    
+```
+
+```json    
     {
         "email": "user@email.fr",
         "firstName": "Armando",
