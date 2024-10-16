@@ -100,7 +100,7 @@ An error object will contain an error code and a human readable description of t
 ### Create campain
 
 #### Request
-```json
+```text
     POST ENDPOINT/campains
     Content-Type: application/json
     Authorization: Bearer JWT
@@ -202,18 +202,12 @@ An error object will contain an error code and a human readable description of t
     {
       "id": "08d8490b-c510-4d45-9b28-b721a1615564",
       "publicId": "04046983",
-      "slug": null,
       "civility": "MR",
       "firstName": "Achille",
-      "partner": null,
       "lastName": "SIMO",
       "email": "guest@mail.com",
       "phoneIndex": "33",
-      "phone": "761705745",
-      "trial": true,
-      "stocks": null,
-      "others": null,
-      "qrCode": null
+      "phone": "761705745"
     }
   ]
 }
