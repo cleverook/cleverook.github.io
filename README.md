@@ -42,9 +42,10 @@ An error object will contain an error code and a human readable description of t
 
 ### Create new account 
 #### Request
-```shell
-    POST {{host}}/signup
+```json
+    POST ENDPOINT/signup
     content-type: application/json
+    
     {
         "email": "user@email.fr",
         "firstName": "Armando",
@@ -61,8 +62,8 @@ An error object will contain an error code and a human readable description of t
 ```
 ### Activate account
 #### Request
-```shell
-    POST {{host}}/activation
+```json
+    POST ENDPOINT/activation
     content-type: application/json
     {
         "code": "[CODE FROM EMAIL ADDRESS]"
@@ -76,13 +77,13 @@ An error object will contain an error code and a human readable description of t
 
 ### Login and get jwt account
 #### Request
-```shell
-    POST {{host}}/signin
+```json
+    POST ENDPOINT/signin
     content-type: application/json
 
     {
-    "username": "user@email.fr",
-    "password": "password"
+        "username": "user@email.fr",
+        "password": "password"
     }
 ```
 
@@ -97,14 +98,14 @@ An error object will contain an error code and a human readable description of t
 ### Create campain
 
 #### Request
-```shell
-    POST {{host}}/campains
+```json
+    POST ENDPOINT/campains
     Content-Type: application/json
-    Authorization: Bearer {{jwt}}
+    Authorization: Bearer JWT
 
     {
         "name":"Campagne WHATSAPP",
-        "message":"Bonjour  {{lastName}} \nCeci est un  {{other}}",
+        "message":`Bonjour  {{lastName}} \nCeci est un  {{other}}`,
         "whatsapp_template":"",
         "time":"00:00",
         "date":"2027-11-15",
@@ -121,7 +122,7 @@ An error object will contain an error code and a human readable description of t
             {
                 "firstName":" Achille OK 1",
                 "lastName":"SIMO",
-                "email":"simachille@gmail.com",
+                "email":"guest@mail.com",
                 "phoneIndex":"+33",
                 "phone":"761705745"
             }
@@ -140,13 +141,13 @@ An error object will contain an error code and a human readable description of t
 
 #### Request
 ```shell
-    GET {{host}}/campains
+    GET ENDPOINT/campains
     Content-Type: application/json
-    Authorization: Bearer {{jwt}}
+    Authorization: Bearer JWT
 ```
 
 #### Response
-```shell 
+```json 
 
 [
   {
@@ -170,13 +171,13 @@ An error object will contain an error code and a human readable description of t
 
 #### Request
 ```shell
-    GET {{host}}/campains/[ID]
+    GET ENDPOINT/campains/[ID]
     Content-Type: application/json
-    Authorization: Bearer {{jwt}}
+    Authorization: Bearer JWT
 ```
 
 #### Response
-```shell 
+```json 
 {
   "publicId": "71744202",
   "authorId": "670f734b9b74ac17a69e5c0a",
@@ -204,7 +205,7 @@ An error object will contain an error code and a human readable description of t
       "firstName": "Achille",
       "partner": null,
       "lastName": "SIMO",
-      "email": "simachille@gmail.com",
+      "email": "guest@mail.com",
       "phoneIndex": "33",
       "phone": "761705745",
       "trial": true,
@@ -220,13 +221,13 @@ An error object will contain an error code and a human readable description of t
 
 #### Request
 ```shell
-    GET {{host}}/campains/[ID]/statistics
+    GET ENDPOINT/campains/[ID]/statistics
     Content-Type: application/json
-    Authorization: Bearer {{jwt}}
+    Authorization: Bearer JWT
 ```
 
 #### Response
-```shell 
+```json 
 
 {
   "date": "2024-10-16 00:00",
