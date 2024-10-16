@@ -56,7 +56,16 @@ An error object will contain an error code and a human readable description of t
         "phone": "2929292925",
         "phoneIndex": "269"
     }
+
 ```
+| name       | type   | description      | example        |
+|------------|--------|------------------|----------------|
+| email      | string | user email       | user@email.com |
+| firstName  | string | user first name  | vanili         |
+| lastName   | string | user last name   | junior         |
+| password   | string | user password    | motdepasse     |
+| phone      | string | user phone       | 1234567890     |
+| phoneIndex | string | user phone index | 269            |
 
 #### Response
 ```shell
@@ -100,14 +109,15 @@ An error object will contain an error code and a human readable description of t
 ### Create campain
 
 #### Request
-```text
+
+<!-- {% raw %} -->
+```json
     POST ENDPOINT/campains
     Content-Type: application/json
     Authorization: Bearer JWT
-
     {
         "name":"Campagne WHATSAPP",
-        "message":`Bonjour  {{lastName}} \nCeci est un  {{other}}`,
+        "message": "Bonjour  {{lastName}} \nCeci est un  {{other}}",
         "whatsapp_template":"",
         "time":"00:00",
         "date":"2027-11-15",
@@ -132,6 +142,7 @@ An error object will contain an error code and a human readable description of t
     }
 
 ```
+<!--  {% endraw %} --> 
 
 #### Response
 ```shell
@@ -178,6 +189,7 @@ An error object will contain an error code and a human readable description of t
     Authorization: Bearer JWT
 ```
 
+<!-- {% raw %} -->
 #### Response
 ```json 
 {
@@ -212,6 +224,7 @@ An error object will contain an error code and a human readable description of t
   ]
 }
 ```
+<!-- {% endraw %} -->
 
 ### Get One campain statistics
 
