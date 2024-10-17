@@ -69,14 +69,14 @@ content-type: application/json
 }
 ```
 
-| Name       |  Type  |      Description |        Example |
-|:-----------|:------:|-----------------:|---------------:|
-| email      | string |       user email | user@email.com |
-| firstName  | string |  user first name |         vanili |
-| lastName   | string |   user last name |         junior |
-| password   | string |    user password |     motdepasse |
-| phone      | string |       user phone |     1234567890 |
-| phoneIndex | string | user phone index |            269 |
+| Name       |  Type  | Description      | Example        |
+|:-----------|:------:|:-----------------|:---------------|
+| email      | string | user email       | user@email.com |
+| firstName  | string | user first name  | vanili         |
+| lastName   | string | user last name   | junior         |
+| password   | string | user password    | motdepasse     |
+| phone      | string | user phone       | 1234567890     |
+| phoneIndex | string | user phone index | 269            |
 
 #### Response
 
