@@ -1,7 +1,9 @@
 # REST API cleverook.com
 
 This documentation is the main documentation on [cleverok.com](htttps://cleverok.com)
+
 ## Table of Contents
+
 1. [Endpoints](#Endpoints)
 2. [Requests](#Requests)
 3. [User account](#user-account)
@@ -9,7 +11,8 @@ This documentation is the main documentation on [cleverok.com](htttps://cleverok
 
 ## Endpoints
 
-The API is accessed by making HTTPS requests to a specific version endpoint URL, in which GET, POST, PUT, and DELETE methods dictate how your interact with the objects available. 
+The API is accessed by making HTTPS requests to a specific version endpoint URL, in which GET, POST, PUT, and DELETE
+methods dictate how your interact with the objects available.
 
 Every endpoint is accessed only via the SSL-enabled HTTPS (port 443) protocol.
 
@@ -20,85 +23,103 @@ Every call through API. must be made to the current url
 ```
 
 ## Requests
-Requests must be sent over HTTPS with any payload(when required) formatted in JSON (application/json). 
 
-Every request must include 
+Requests must be sent over HTTPS with any payload(when required) formatted in JSON (application/json).
+
+Every request must include
+
 - The headers content-type: application/json and api-key.
-- Either `x-client-id`  and `x-client-secret` which can be retrieved from the [account settings](https://cleverook.com/me/my-account). 
-- Either `Authorization` whith token which can be retrieved after authentication. 
+- Either `x-client-id`  and `x-client-secret` which can be retrieved from
+  the [account settings](https://cleverook.com/me/my-account).
+- Either `Authorization` whith token which can be retrieved after authentication.
 
 ## Responses
+
 ### Format
-Each response can either 
-- Be empty; for example in case of an update which returns an http 204 response and doesn't need to return additional infos or a JSON object.
+
+Each response can either
+
+- Be empty; for example in case of an update which returns an http 204 response and doesn't need to return additional
+  infos or a JSON object.
 - Be with a JSON in case of success the JSON object returned for each endpoint is different.
 
 An error object will contain an error code and a human readable description of the error.
 
 ### HTTP response codes
- [cleverok.com](htttps://cleverok.com) returns standard html codes
+
+[cleverok.com](htttps://cleverok.com) returns standard html codes
 
 ## User account
 
-### Create new account 
+### Create new account
+
 #### Request
+
 ```shell
     POST ENDPOINT/signup
     content-type: application/json
 ```
 
 ```json    
-    {
-        "email": "user@email.fr",
-        "firstName": "Armando",
-        "lastName": "Pratt",
-        "password": "password",
-        "phone": "2929292925",
-        "phoneIndex": "269"
-    }
-
+{
+  "email": "user@email.fr",
+  "firstName": "Armando",
+  "lastName": "Pratt",
+  "password": "password",
+  "phone": "2929292925",
+  "phoneIndex": "269"
+}
 ```
-| name       | type   | description      | example        |
-|------------|--------|------------------|----------------|
-| email      | string | user email       | user@email.com |
-| firstName  | string | user first name  | vanili         |
-| lastName   | string | user last name   | junior         |
-| password   | string | user password    | motdepasse     |
-| phone      | string | user phone       | 1234567890     |
-| phoneIndex | string | user phone index | 269            |
+
+| Name       |  Type  |      Description |        Example |
+|:-----------|:------:|-----------------:|---------------:|
+| email      | string |       user email | user@email.com |
+| firstName  | string |  user first name |         vanili |
+| lastName   | string |   user last name |         junior |
+| password   | string |    user password |     motdepasse |
+| phone      | string |       user phone |     1234567890 |
+| phoneIndex | string | user phone index |            269 |
 
 #### Response
+
 ```shell
     EMPTY
 ```
+
 ### Activate account
+
 #### Request
+
 ```json
     POST ENDPOINT/activation
-    content-type: application/json
-    {
-        "code": "[CODE FROM EMAIL ADDRESS]"
-    }
+content-type: application/json
+{
+"code": "[CODE FROM EMAIL ADDRESS]"
+}
 ```
 
 #### Response
+
 ```shell
     EMPTY
 ```
 
 ### Login and get jwt account
+
 #### Request
+
 ```json
     POST ENDPOINT/signin
-    content-type: application/json
+content-type: application/json
 
-    {
-        "username": "user@email.fr",
-        "password": "password"
-    }
+{
+"username": "user@email.fr",
+"password": "password"
+}
 ```
 
 #### Response
+
 ```shell
     {
         "token": "JWT_TOKEN"
@@ -106,53 +127,57 @@ An error object will contain an error code and a human readable description of t
 ```
 
 ## Campains
+
 ### Create campain
 
 #### Request
 
 <!-- {% raw %} -->
+
 ```json
     POST ENDPOINT/campains
-    Content-Type: application/json
-    Authorization: Bearer JWT
-    {
-        "name":"Campagne WHATSAPP",
-        "message": "Bonjour  {{lastName}} \nCeci est un  {{other}}",
-        "whatsapp_template":"",
-        "time":"00:00",
-        "date":"2027-11-15",
-        "informations":[
-            "{{lastName}}",
-            "Test"
-        ],
-        "channels":[
-            "SMS",
-            "WHATSAPP",
-            "EMAIL"
-        ],
-        "guests":[
-            {
-                "firstName":" Achille OK 1",
-                "lastName":"SIMO",
-                "email":"guest@mail.com",
-                "phoneIndex":"+33",
-                "phone":"761705745"
-            }
-        ]
-    }
+Content-Type: application/json
+Authorization: Bearer JWT
+{
+"name": "Campagne WHATSAPP",
+"message": "Bonjour  {{lastName}} \nCeci est un  {{other}}",
+"whatsapp_template": "",
+"time":"00:00",
+"date": "2027-11-15",
+"informations":[
+"{{lastName}}",
+"Test"
+],
+"channels":[
+"SMS",
+"WHATSAPP",
+"EMAIL"
+],
+"guests":[
+{
+"firstName": " Achille OK 1",
+"lastName": "SIMO",
+"email": "guest@mail.com",
+"phoneIndex": "+33",
+"phone": "761705745"
+}
+]
+}
 
 ```
+
 <!--  {% endraw %} --> 
 
 #### Response
+
 ```shell
     EMPTY
 ```
 
-
 ### Get all campains
 
 #### Request
+
 ```shell
     GET ENDPOINT/campains
     Content-Type: application/json
@@ -160,6 +185,7 @@ An error object will contain an error code and a human readable description of t
 ```
 
 #### Response
+
 ```json 
 
 [
@@ -183,6 +209,7 @@ An error object will contain an error code and a human readable description of t
 ### Get One campain
 
 #### Request
+
 ```shell
     GET ENDPOINT/campains/[ID]
     Content-Type: application/json
@@ -190,7 +217,9 @@ An error object will contain an error code and a human readable description of t
 ```
 
 <!-- {% raw %} -->
+
 #### Response
+
 ```json 
 {
   "publicId": "71744202",
@@ -224,11 +253,13 @@ An error object will contain an error code and a human readable description of t
   ]
 }
 ```
+
 <!-- {% endraw %} -->
 
 ### Get One campain statistics
 
 #### Request
+
 ```shell
     GET ENDPOINT/campains/[ID]/statistics
     Content-Type: application/json
@@ -236,6 +267,7 @@ An error object will contain an error code and a human readable description of t
 ```
 
 #### Response
+
 ```json 
 
 {
