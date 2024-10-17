@@ -56,11 +56,9 @@ An error object will contain an error code and a human readable description of t
 #### Request
 
 ```shell
-    POST ENDPOINT/signup
-    content-type: application/json
-```
-
-```json    
+POST ENDPOINT/signup
+content-type: application/json
+ 
 {
   "email": "user@email.fr",
   "firstName": "Armando",
@@ -90,11 +88,12 @@ An error object will contain an error code and a human readable description of t
 
 #### Request
 
-```json
-    POST ENDPOINT/activation
+```shell
+POST ENDPOINT/activation
 content-type: application/json
+
 {
-"code": "[CODE FROM EMAIL ADDRESS]"
+  "code": "[CODE FROM EMAIL ADDRESS]"
 }
 ```
 
@@ -108,13 +107,13 @@ content-type: application/json
 
 #### Request
 
-```json
-    POST ENDPOINT/signin
+```shell
+POST ENDPOINT/signin
 content-type: application/json
 
 {
-"username": "user@email.fr",
-"password": "password"
+  "username": "user@email.fr",
+  "password": "password"
 }
 ```
 
@@ -134,34 +133,35 @@ content-type: application/json
 
 <!-- {% raw %} -->
 
-```json
-    POST ENDPOINT/campains
+```shell
+POST ENDPOINT/campains
 Content-Type: application/json
 Authorization: Bearer JWT
+
 {
-"name": "Campagne WHATSAPP",
-"message": "Bonjour  {{lastName}} \nCeci est un  {{other}}",
-"whatsapp_template": "",
-"time":"00:00",
-"date": "2027-11-15",
-"informations":[
-"{{lastName}}",
-"Test"
-],
-"channels":[
-"SMS",
-"WHATSAPP",
-"EMAIL"
-],
-"guests":[
-{
-"firstName": " Achille OK 1",
-"lastName": "SIMO",
-"email": "guest@mail.com",
-"phoneIndex": "+33",
-"phone": "761705745"
-}
-]
+  "name": "Campagne WHATSAPP",
+  "message": "Bonjour  {{lastName}} \nCeci est un  {{other}}",
+  "whatsapp_template": "",
+  "time":"00:00",
+  "date": "2027-11-15",
+  "informations":[
+    "{{lastName}}",
+    "Test"
+  ],
+  "channels":[
+    "SMS",
+    "WHATSAPP",
+    "EMAIL"
+  ],
+  "guests":[
+    {
+      "firstName": " Achille OK 1",
+      "lastName": "SIMO",
+      "email": "guest@mail.com",
+      "phoneIndex": "+33",
+      "phone": "761705745"
+    }
+  ]
 }
 
 ```
