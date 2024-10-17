@@ -119,10 +119,10 @@ content-type: application/json
 
 #### Response
 
-```shell
-    {
-        "token": "JWT_TOKEN"
-    }
+```json
+{
+  "token": "JWT_TOKEN"
+}
 ```
 
 ## Campains
